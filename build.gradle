@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-devtools:2.7.5'
+	implementation 'com.google.code.gson:gson:2.10'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	implementation 'com.amazonaws.secretsmanager:aws-secretsmanager-jdbc:1.0.10'
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
