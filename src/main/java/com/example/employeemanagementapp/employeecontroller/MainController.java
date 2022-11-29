@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://employeemanagementapp.com/list")
+@CrossOrigin(origins = "https://employeemanagementapp.com")
 public class MainController {
 
    private EmployeeService employeeService;
