@@ -1,4 +1,4 @@
-package com.example.employeemanagementapp.model;
+package com.example.employeemanagementapp.employee.employeemodel;
 
 
 

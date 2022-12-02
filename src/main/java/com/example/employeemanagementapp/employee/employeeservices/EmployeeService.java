@@ -1,7 +1,7 @@
-package com.example.employeemanagementapp.services;
+package com.example.employeemanagementapp.employee.employeeservices;
 
-import com.example.employeemanagementapp.mapper.EmployeeMapper;
-import com.example.employeemanagementapp.model.Employee;
+import com.example.employeemanagementapp.employee.employeemapper.EmployeeMapper;
+import com.example.employeemanagementapp.employee.employeemodel.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +17,9 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployees(){
         return employeeMapper.findAll();
+    }
 
+    public void insertEmployeeService(Employee employee){
+        employeeMapper.insertOneEmployee(employee);
     }
 }
