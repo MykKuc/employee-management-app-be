@@ -50,11 +50,45 @@ databaseChangeLog:
                       type: varchar(200)
                       constraints:
                         nullable: false
-        - addForeignKeyConstraint:
-            baseColumnNames: category_id
-            baseTableName: employee
-            baseTableSchemaName: public
-            constraintName: fk_employee_category
-            referencedColumnNames: category_id
-            referencedTableName: category
-            referencedTableSchemaName: public
+  - changeSet:
+        id: adding_fk_category
+        author: Mykolas
+        comment: Added a foreign key for category on employee.
+        changes:
+          - addForeignKeyConstraint:
+              baseColumnNames: category_id
+              baseTableName: employee
+              baseTableSchemaName: employee_management_app
+              constraintName: fk_employee_category
+              referencedColumnNames: category_id
+              referencedTableName: category
+              referencedTableSchemaName: employee_management_app
+  - changeSet:
+        id: add_mock_data
+        author: Mykolas
+        comment: Adding mock data for the project.
+        changes:
+          - insert:
+              tableName: category
+              columns:
+                - column:
+                    name: category_id
+                    value: 1
+                - column:
+                    name: name
+                    value: 'Engineering'
+                - column:
+                    name: description
+                    value: 'Department for inventing and doing Engineering'
+          - insert:
+              tableName: employee
+              columns:
+                - column:
+                    name: firstname
+                    value: 'Petras'
+                - column:
+                    name: lastname
+                    value: 'Antanovicius'
+                - column:
+                    name: category_id
+                    value: 1

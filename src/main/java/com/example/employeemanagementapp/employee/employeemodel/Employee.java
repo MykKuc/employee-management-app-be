@@ -5,7 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table
+@Table(name = "employee")
 public class Employee {
 
     @Id
@@ -14,11 +14,11 @@ public class Employee {
     private Integer id;
 
     @NotBlank(message = "Name field can not be empty.")
-    @Column(name = "employee_name")
+    @Column(name = "firstname")
     private String employeeName;
 
     @NotBlank(message = "Surname field can not be empty.")
-    @Column(name = "employee_surname")
+    @Column(name = "lastname")
     private String employeeSurname;
 
     public Employee(Integer id, String employeeName, String employeeSurname) {
