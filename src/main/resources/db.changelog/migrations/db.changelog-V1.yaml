@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: main_tables_structure
+      author: Mykolas
+      comment: Provide main tables for the database.
+      changes:
+        - createTable:
+            tableName: employee
+            columns:
+                   - column:
+                      name: employee_id
+                      type: bigint
+                      autoIncrement: true
+                      constraints:
+                        primaryKey: true
+                        nullable: false
+                   - column:
+                      name: firstname
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                   - column:
+                      name: lastname
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                   -  column:
+                       name: category_id
+                       type: bigint
+                       constraints:
+                         nullable: false
+
+        - createTable:
+              tableName: category
+              columns:
+                   - column:
+                      name: category_id
+                      type: bigint
+                      autoIncrement: true
+                      constraints:
+                        primaryKey: true
+                        nullable: false
+                   - column:
+                      name: name
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                   - column:
+                      name: description
+                      type: varchar(200)
+                      constraints:
+                        nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: category_id
+            baseTableName: employee
+            baseTableSchemaName: public
+            constraintName: fk_employee_category
+            referencedColumnNames: category_id
+            referencedTableName: category
+            referencedTableSchemaName: public
