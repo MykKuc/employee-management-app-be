@@ -6,6 +6,7 @@ import com.example.employeemanagementapp.employee.employeeservices.EmployeeServi
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 // https://employeemanagementapp.com
 @RestController
@@ -32,7 +33,7 @@ public class MainController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping
-    public void postEmployee(@RequestBody Employee employee){
+    public void postEmployee(@Valid @RequestBody Employee employee){
         employeeService.insertEmployeeService(employee);
     }
 

@@ -1,6 +1,6 @@
 package com.example.employeemanagementapp.employee.employeeservices;
 
-import com.example.employeemanagementapp.employee.employeemapper.EmployeeMapper;
+import com.example.employeemanagementapp.employee.employeerepository.EmployeeRepository;
 import com.example.employeemanagementapp.employee.employeemodel.Employee;
 import org.springframework.stereotype.Service;
 
@@ -9,22 +9,23 @@ import java.util.List;
 @Service
 public class EmployeeService {
 
-    private EmployeeMapper employeeMapper;
+    private EmployeeRepository employeeRepository;
 
-    public EmployeeService(EmployeeMapper employeeMapper){
-        this.employeeMapper = employeeMapper;
+    public EmployeeService(EmployeeRepository employeeRepository){
+        this.employeeRepository = employeeRepository;
     }
 
+
     public List<Employee> getAllEmployees(){
-        return employeeMapper.findAll();
+        return employeeRepository.findAll();
     }
 
     public void insertEmployeeService(Employee employee){
-        employeeMapper.insertOneEmployee(employee);
+        employeeRepository.save(employee);
     }
 
     public void deleteEmployeeById(int id){
-        employeeMapper.deleteById(id);
+        employeeRepository.deleteById(id);
 
     }
 }
