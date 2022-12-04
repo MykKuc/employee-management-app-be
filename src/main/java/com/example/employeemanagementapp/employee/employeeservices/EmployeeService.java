@@ -22,4 +22,9 @@ public class EmployeeService {
     public void insertEmployeeService(Employee employee){
         employeeMapper.insertOneEmployee(employee);
     }
+
+    public void deleteEmployeeById(int id){
+        employeeMapper.deleteById(id);
+
+    }
 }
