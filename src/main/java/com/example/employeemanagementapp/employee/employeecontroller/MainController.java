@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-// https://employeemanagementapp.com
+
 @RestController
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "https://employeemanagementapp.com")
 @RequestMapping("employee")
 public class MainController {
 
