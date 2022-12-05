@@ -8,7 +8,7 @@
 
 **This Application is hosted on AWS. Frontend is hosted inside S3 Bucket and delivered using CloudFront and AWS Certificate Manager, Domain name bought and registered using Amazon Route 53. 
 Backend is deployed on EC2 Instances (AMI: Ubuntu 22.04 LTS; Instance type: t3.nano) and load balanced using Application Load Balancer (ALB). 
-MySQL database is running on Amazon RDS.**
+MySQL database is running on Amazon RDS. Secrets of Database connection are storred inside AWS Secrets Manager.**
 
 ## The Purpose of Application
 
