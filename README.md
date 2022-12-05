@@ -1,0 +1,24 @@
+# Employee Management Application
+
+## This is not a final Product !! I am adding new features and fixing bugs!!
+
+## Hosted Application (AWS)
+
+**Domain Names: employeemanagementapp.com or www.employeemanagementapp.com**
+
+**This Application is hosted on AWS. Frontend is hosted inside S3 Bucket and delivered using CloudFront and AWS Certificate Manager, Domain name bought and registered using Amazon Route 53. 
+Backend is deployed on EC2 Instances (AMI: Ubuntu 22.04 LTS; Instance type: t3.nano) and load balanced using Application Load Balancer (ALB). 
+MySQL database is running on Amazon RDS.**
+
+## The Purpose of Application
+
+The purpose of this Application is to make work for HR easier and let them manage Human Resources in a more convenient way.
+
+## Viewing Employee Information
+
+One of the functionalities of Employee Management Application is viewing the information about a particular employee group or just about a single employee.
+
+
+## Adding the employee to the database of the employees
+
+New Employee can be added to the database by entering certain needed information about the employee.
