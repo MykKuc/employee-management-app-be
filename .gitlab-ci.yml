@@ -31,6 +31,8 @@ deploy employee management app ec2:
     - echo "Creating .pem file"
     - touch Employee-Management-App-VM.pem
     - pwd
+    - ls
+    - mv Employee-Management-App-VM.pem ~/Employee-Management-App-VM.pem
     - echo "Writing the variable into .pem file"
     - echo "$SSH_INSTANCE_PEM" > Employee-Management-App-VM.pem
     - grep -f "END RSA PRIVATE KEY" Employee-Management-App-VM.pem
