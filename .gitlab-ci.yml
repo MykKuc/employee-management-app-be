@@ -51,7 +51,6 @@ deploy employee management app ec2:
       else
       echo "There are no existing .jar files.";
       fi
-    - exit
     - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM2IP
     - if [test -f *.jar]; then
       echo "Existing .jar file detected. Deleting the file.";
