@@ -27,6 +27,8 @@ deploy employee management app ec2:
     refs:
       - master
   before_script:
+    - echo "Where am I"
+    - pwd
     - echo "Move .jar file to the root directory."
     - ls
     - cd build/libs
