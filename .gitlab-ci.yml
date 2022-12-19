@@ -1,0 +1,38 @@
+#This is a GitLab CI/CD Pipeline for Java application deployment on Amazon EC2.
+
+stages:
+  - build
+  - deploy
+
+build employee management app:
+  stage: build
+  image: openjdk:17-alpine3.14
+  script:
+    - echo "Clean the build project"
+    - ./gradlew clean
+    - echo "Building and packaging Gradle project into .jar"
+    - ./gradlew bootJar
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in: 15 minutes
+
+deploy employee management app ec2:
+  stage: deploy
+  image: alpine:3.17.0
+  only:
+    refs:
+      - master
+  before_script:
+    - apk update -y
+    - apk add openssh-client
+    - echo "Creating .pem file"
+    - touch Employee-Management-App-VM.pem
+    - pwd
+    - echo "Writing the variable into .pem file"
+    - echo "$SSH_INSTANCE_PEM" > Employee-Management-App-VM.pem
+    - grep -f "END RSA PRIVATE KEY" Employee-Management-App-VM.pem
+  script:
+    - echo "Starting to copy JAR file into my EC2 Instances."
+    - scp -i Employee-Management-App-VM.pem build/libs/*.jar ubuntu@16.170.81.18:~/.
+    - scp -i Employee-Management-App-VM.pem build/libs/*.jar ubuntu@13.50.94.112:~/.
