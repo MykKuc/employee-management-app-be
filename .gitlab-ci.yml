@@ -31,11 +31,11 @@ deploy employee management app ec2:
     - echo "Creating .pem file"
     - touch Employee-Management-App-VM.pem
     - pwd
-    - ls
+    - ls -l
     - mv Employee-Management-App-VM.pem ~/Employee-Management-App-VM.pem
     - echo "Writing the variable into .pem file"
     - echo "$SSH_INSTANCE_PEM" > Employee-Management-App-VM.pem
-    - grep -f "END RSA PRIVATE KEY" Employee-Management-App-VM.pem
+    - grep -f "RSA PRIVATE" Employee-Management-App-VM.pem
   script:
     - echo "Starting to copy JAR file into my EC2 Instances."
     - scp -i Employee-Management-App-VM.pem build/libs/*.jar ubuntu@16.170.81.18:~/.
