@@ -14,6 +14,8 @@ build employee management app:
     - ./gradlew clean
     - echo "Building and packaging Gradle project into .jar"
     - ./gradlew bootJar
+    - pwd
+    - ls
   artifacts:
     paths:
       - build/libs/*.jar
@@ -35,7 +37,7 @@ deploy employee management app ec2:
     - mv Employee-Management-App-VM.pem ~/Employee-Management-App-VM.pem
     - echo "Writing the variable into .pem file"
     - echo "$SSH_INSTANCE_PEM" > Employee-Management-App-VM.pem
-    - grep -f "RSA PRIVATE" Employee-Management-App-VM.pem
+    - grep "RSA PRIVATE" Employee-Management-App-VM.pem
   script:
     - echo "Starting to copy JAR file into my EC2 Instances."
     - scp -i Employee-Management-App-VM.pem build/libs/*.jar ubuntu@16.170.81.18:~/.
