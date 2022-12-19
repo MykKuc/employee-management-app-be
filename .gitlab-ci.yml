@@ -8,6 +8,8 @@ build employee management app:
   stage: build
   image: openjdk:17-alpine3.14
   script:
+    - echo "Make gradlew file executable."
+    - chmod +x gradlew
     - echo "Clean the build project"
     - ./gradlew clean
     - echo "Building and packaging Gradle project into .jar"
