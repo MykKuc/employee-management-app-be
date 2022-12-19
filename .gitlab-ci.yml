@@ -48,5 +48,5 @@ deploy employee management app ec2:
     - grep "RSA PRIVATE" Employee-Management-App-VM.pem
   script:
     - echo "Starting to copy JAR file into my EC2 Instances."
-    - scp -i Employee-Management-App-VM.pem ~/*.jar ubuntu@16.170.81.18:~/.
-    - scp -i Employee-Management-App-VM.pem ~/*.jar ubuntu@13.50.94.112:~/.
+    - scp -i Employee-Management-App-VM.pem *.jar ubuntu@16.170.81.18:~/
+    - scp -i Employee-Management-App-VM.pem *.jar ubuntu@13.50.94.112:~/
