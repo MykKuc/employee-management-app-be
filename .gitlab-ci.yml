@@ -58,7 +58,6 @@ deploy employee management app ec2:
       else
       echo "There are no existing .jar files.";
       fi
-    - exit
     - echo "Starting to copy JAR file into my EC2 Instances."
     - scp -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem *.jar ubuntu@$VM1IP:~/
     - scp -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem *.jar ubuntu@$VM2IP:~/
