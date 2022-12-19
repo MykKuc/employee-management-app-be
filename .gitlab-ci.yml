@@ -27,7 +27,7 @@ deploy employee management app ec2:
       - master
   before_script:
     - apk -i update
-    - apk -i add openssh-client
+    - apk add openssh-client
     - echo "Creating .pem file"
     - touch Employee-Management-App-VM.pem
     - pwd
