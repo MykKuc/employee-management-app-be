@@ -15,7 +15,6 @@ build employee management app:
     - echo "Building and packaging Gradle project into .jar"
     - ./gradlew bootJar
     - pwd
-    - ls
   artifacts:
     paths:
       - build/libs/*.jar
@@ -28,6 +27,9 @@ deploy employee management app ec2:
     refs:
       - master
   before_script:
+    - echo "Move .jar file to the root directory."
+    - mv build/libs/*.jar ~/
+    - ls
     - apk -i update
     - apk add openssh-client
     - echo "Creating .pem file"
