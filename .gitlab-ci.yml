@@ -28,7 +28,10 @@ deploy employee management app ec2:
       - master
   before_script:
     - echo "Move .jar file to the root directory."
-    - mv build/libs/*.jar ~/
+    - cd /build/libs
+    - mv *.jar ~/
+    - cd ~/
+    - pwd
     - ls
     - apk -i update
     - apk add openssh-client
