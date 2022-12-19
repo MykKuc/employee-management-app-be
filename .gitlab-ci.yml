@@ -28,7 +28,8 @@ deploy employee management app ec2:
       - master
   before_script:
     - echo "Move .jar file to the root directory."
-    - cd /build/libs
+    - ls
+    - cd build/libs
     - mv *.jar ~/
     - cd ~/
     - pwd
