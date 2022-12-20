@@ -45,14 +45,14 @@ deploy employee management app ec2:
     - chmod 400 Employee-Management-App-VM.pem
     - echo "Checking for and removing already existing .jar files."
     - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM1IP
-    - if  test -f "*.jar"; then
+    - if  test \(*.jar\) ; then
         echo "Existing .jar file detected. Deleting the file.";
         rm *.jar;
       else
          echo "There are no existing .jar files.";
       fi
     - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM2IP
-    - if  test -f "*.jar"; then
+    - if  test \(*.jar\) ; then
         echo "Existing .jar file detected. Deleting the file.";
         rm *.jar;
       else
