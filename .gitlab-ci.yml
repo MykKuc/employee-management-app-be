@@ -63,6 +63,6 @@ deploy employee management app ec2:
     - scp -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem *.jar ubuntu@$VM2IP:~/
     - echo "Execute the .jar inside of EC2 Instances."
     - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM1IP 
-      "java -jar *.jar &"
+      "sudo ./run.sh &"
     - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM2IP
-      "java -jar *.jar &"
+      "sudo ./run.sh &"
