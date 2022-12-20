@@ -44,20 +44,20 @@ deploy employee management app ec2:
   script:
     - chmod 400 Employee-Management-App-VM.pem
     - echo "Checking for and removing already existing .jar files."
-    - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM1IP
-    - if test \(*.jar\) ; then
+    - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM1IP 
+      "if test \(*.jar\) ; then
           pwd;
           rm *.jar;
       else
           echo "No .jar files";
-      fi
+      fi"
     - ssh -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem ubuntu@$VM2IP
-    - if test \(*.jar\) ; then
+      "if test \(*.jar\) ; then
           pwd;
           rm *.jar;
       else
           echo "No .jar files";
-      fi
+      fi"
     - echo "Starting to copy JAR file into my EC2 Instances."
     - scp -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem *.jar ubuntu@$VM1IP:~/
     - scp -o StrictHostKeyChecking=no -i Employee-Management-App-VM.pem *.jar ubuntu@$VM2IP:~/
