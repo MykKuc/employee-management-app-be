@@ -26,7 +26,7 @@ databaseChangeLog:
                         nullable: false
                    - column:
                        name: salary
-                       type: int
+                       type: INT
                        constraints:
                          nullable: false
   - changeSet:
@@ -43,9 +43,6 @@ databaseChangeLog:
                 - column:
                     name: lastname
                     value: 'Antanovicius'
-                - column:
-                    name: category_id
-                    value: 1
                 - column:
                     name: salary
                     value: 1300
