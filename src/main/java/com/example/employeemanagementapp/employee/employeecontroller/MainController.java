@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://employeemanagementapp.com")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("employee")
 public class MainController {
 
@@ -33,7 +33,7 @@ public class MainController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping
-    public void postEmployee(@Valid @RequestBody Employee employee){
+    public void postEmployee(@RequestBody Employee employee){
         employeeService.insertEmployeeService(employee);
     }
 

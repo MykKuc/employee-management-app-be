@@ -8,7 +8,7 @@ databaseChangeLog:
             tableName: employee
             columns:
                    - column:
-                      name: employee_id
+                      name: id
                       type: bigint
                       autoIncrement: true
                       constraints:
@@ -24,62 +24,16 @@ databaseChangeLog:
                       type: varchar(50)
                       constraints:
                         nullable: false
-                   -  column:
-                       name: category_id
-                       type: bigint
+                   - column:
+                       name: salary
+                       type: int
                        constraints:
                          nullable: false
-
-        - createTable:
-              tableName: category
-              columns:
-                   - column:
-                      name: category_id
-                      type: bigint
-                      autoIncrement: true
-                      constraints:
-                        primaryKey: true
-                        nullable: false
-                   - column:
-                      name: name
-                      type: varchar(50)
-                      constraints:
-                        nullable: false
-                   - column:
-                      name: description
-                      type: varchar(200)
-                      constraints:
-                        nullable: false
-  - changeSet:
-        id: adding_fk_category
-        author: Mykolas
-        comment: Added a foreign key for category on employee.
-        changes:
-          - addForeignKeyConstraint:
-              baseColumnNames: category_id
-              baseTableName: employee
-              baseTableSchemaName: employee_management_app
-              constraintName: fk_employee_category
-              referencedColumnNames: category_id
-              referencedTableName: category
-              referencedTableSchemaName: employee_management_app
   - changeSet:
         id: add_mock_data
         author: Mykolas
         comment: Adding mock data for the project.
         changes:
-          - insert:
-              tableName: category
-              columns:
-                - column:
-                    name: category_id
-                    value: 1
-                - column:
-                    name: name
-                    value: 'Engineering'
-                - column:
-                    name: description
-                    value: 'Department for inventing and doing Engineering'
           - insert:
               tableName: employee
               columns:
@@ -92,3 +46,6 @@ databaseChangeLog:
                 - column:
                     name: category_id
                     value: 1
+                - column:
+                    name: salary
+                    value: 1300

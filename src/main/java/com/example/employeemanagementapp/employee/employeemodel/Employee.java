@@ -1,56 +1,34 @@
 package com.example.employeemanagementapp.employee.employeemodel;
 
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id")
-    private Integer id;
+    @Column(name = "id")
+    private Integer employeeId;
 
-    @NotBlank(message = "Name field can not be empty.")
     @Column(name = "firstname")
     private String employeeName;
 
-    @NotBlank(message = "Surname field can not be empty.")
     @Column(name = "lastname")
     private String employeeSurname;
 
-    public Employee(Integer id, String employeeName, String employeeSurname) {
-        this.id = id;
-        this.employeeName = employeeName;
-        this.employeeSurname = employeeSurname;
-    }
+    @Column(name = "salary")
+    private Integer salary;
 
-    public Employee() {
-    }
-
-    public Integer getId(){
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
-    public String getEmployeeSurname() {
-        return employeeSurname;
-    }
-
-    public void setEmployeeSurname(String employeeSurname) {
-        this.employeeSurname = employeeSurname;
-    }
 }
