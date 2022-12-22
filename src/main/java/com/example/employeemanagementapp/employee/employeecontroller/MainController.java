@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://employeemanagementapp.com")
+@CrossOrigin(origins = {"https://employeemanagementapp.com","http://localhost:4200"})
 @RequestMapping("employee")
 public class MainController {
 
