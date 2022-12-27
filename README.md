@@ -10,6 +10,8 @@
 Backend is deployed on EC2 Instances (AMI: Ubuntu 22.04 LTS; Instance type: t3.nano) and load balanced using Application Load Balancer (ALB). 
 MySQL database is running on Amazon RDS. Secrets of Database connection are storred inside AWS Secrets Manager.**
 
+![Alt text](Employee%20Management%20App%20Infrastructure.png "Infrastructure Scheme of Application.")
+
 **I had also deployed the application using Amazon Elastic Container Service and Amazon Elastic Container Registry.
 After creating Dockerfile I created Docker Image and pushed it to my Amazon ECR repository.
 After that I have used ECS to create and run Docker containers created from my Docker image.
